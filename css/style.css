@@ -1,0 +1,105 @@
+
+/* style.css — sober & professional hospital UI */
+:root{
+	--bg: #f5f7f9;
+	--surface: #ffffff;
+	--muted: #6b7280;
+	--text: #0b1220;
+	--primary: #0a6b8c; /* teal-blue */
+	--primary-600: #09586f;
+	--accent-soft: rgba(10,107,140,0.06);
+	--danger: #c94141;
+	--success: #1e8f5b;
+	--border: #e6eef3;
+	--radius: 10px;
+	--container: 1100px;
+	--shadow-soft: 0 6px 20px rgba(12,33,66,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{
+	background:var(--surface);
+	border-bottom:1px solid var(--border);
+	box-shadow: 0 2px 6px rgba(10,15,20,0.03);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .logo{height:42px;width:auto;display:inline-block}
+.brand span{font-weight:700;color:var(--primary);letter-spacing:0.2px}
+.main-nav{display:flex;align-items:center;gap:12px}
+.main-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+.main-nav a:hover{color:var(--primary);background:var(--accent-soft)}
+
+/* Page header / hero */
+.page-hero{padding:36px 0;border-bottom:1px solid var(--border);background:linear-gradient(180deg,transparent, rgba(10,107,140,0.01))}
+.page-hero h1{margin:0;font-size:22px}
+.page-hero p{margin:6px 0 0;color:var(--muted)}
+
+/* Content layout */
+.content{padding:28px 0}
+.two-columns{display:grid;grid-template-columns: 1fr 360px;gap:24px}
+.stack{display:flex;flex-direction:column;gap:12px}
+
+/* Cards */
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:18px;border:1px solid var(--border)}
+.card .card-title{margin:0 0 8px;font-size:16px;font-weight:700}
+
+/* Forms */
+form{max-width:720px;margin:8px 0}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="time"], select, textarea{
+	width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-size:15px;color:var(--text)
+}
+input:focus, select:focus, textarea:focus{outline:none;box-shadow:0 10px 30px rgba(10,107,140,0.06);border-color:var(--primary)}
+button, form button{background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+button.secondary{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+
+/* Lists */
+.doctor-item, .appointment-item{background:linear-gradient(180deg,var(--surface), #fbfeff);padding:14px;border-radius:8px;margin-bottom:12px;border-left:4px solid transparent;display:flex;flex-direction:column;gap:6px}
+.appointment-item{border-left-color:var(--primary)}
+.doctor-item h3, .appointment-item h4{margin:0}
+
+/* Utilities */
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--border);padding:20px 0;margin-top:36px;background:transparent;color:var(--muted)}
+
+/* Toast container minimal positioning */
+#toast-container{right:18px;bottom:18px}
+
+/* Accessibility */
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* helper: centered empty state */
+.empty-state{padding:28px;text-align:center;color:var(--muted)}
+
+/* Modal (simple centered) */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,0.45);z-index:60}
+.modal .modal-content{max-width:720px;width:100%;padding:18px}
+.modal .modal-content img{max-width:220px;border-radius:8px}
+
+/* Admin list improvements */
+.doctor-item.card{display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+.doctor-item .meta{color:var(--muted);font-size:13px}
+.doctor-item .actions button{margin-left:6px}
+
+/* Export area */
+.admin-export{display:flex;gap:12px;align-items:center}
+.admin-export .btn{padding:8px 10px}
+
+

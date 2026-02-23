@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inscription — Hospital System</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img
+            src="../assets/icons/logo.svg"
+            alt="Hospital System"
+            class="logo"
+          />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="dashboard-patient.html">Mon dashboard</a>
+          <a href="profile.html">Profil</a>
+          <a href="login.html">Connexion</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Créer un compte</h1>
+          <p class="muted">
+            Inscrivez-vous pour prendre des rendez‑vous et accéder à votre
+            espace.
+          </p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="card">
+          <form id="register-form">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required />
+
+            <div style="margin-top: 12px">
+              <label for="role">Vous inscrivez-vous en tant que</label>
+              <select id="role" name="role">
+                <option value="patient">Patient</option>
+                <option value="doctor">Médecin (inscription soumise à validation)</option>
+              </select>
+
+              <div id="doctor-fields" style="display:none;margin-top:8px">
+                <label for="specialty">Spécialité</label>
+                <input type="text" id="specialty" name="specialty" />
+
+                <label for="license">Numéro d'ordre / Licence</label>
+                <input type="text" id="license" name="license" />
+              </div>
+
+              <button type="submit">S'inscrire</button>
+            </div>
+          </form>
+          <p class="small muted" style="margin-top: 12px">
+            Déjà membre ? <a href="login.html">Connexion</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Hospital System</p>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+      // show/hide doctor-only fields
+      (function (){
+        const roleEl = document.getElementById('role');
+        const docFields = document.getElementById('doctor-fields');
+        if (!roleEl || !docFields) return;
+        function update() {
+          if (roleEl.value === 'doctor') docFields.style.display = 'block';
+          else docFields.style.display = 'none';
+        }
+        roleEl.addEventListener('change', update);
+        update();
+      })();
+    </script>
+  </body>
+</html>

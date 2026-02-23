@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Prendre rendez-vous — Hospital System</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/style.css" />
+  <!-- optional theme: ../css/theme-clinical.css (keep for preview) -->
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img
+            src="../assets/icons/logo.svg"
+            alt="Hospital System"
+            class="logo"
+          />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="dashboard-patient.html">Mon dashboard</a>
+          <a href="profile.html">Profil</a>
+          <a href="login.html">Connexion</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Prendre un rendez-vous</h1>
+          <p class="muted">
+            Choisissez un médecin, une date et une heure. Nous vous enverrons
+            une confirmation.
+          </p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="two-columns">
+          <div>
+            <div class="card">
+              <h3 class="card-title">Réserver</h3>
+              <form id="booking-form">
+                <label for="doctor">Choisir un médecin</label>
+                <select id="doctor" name="doctor">
+                  <!-- <option value="">nad</option> -->
+                  <!-- options peuplées par js/doctors.js -->
+                </select>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required />
+
+                <label for="time">Heure</label>
+                <input type="time" id="time" name="time" required />
+
+                <div style="margin-top: 12px">
+                  <button type="submit">Valider</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card">
+              <h3 class="card-title">Médecins disponibles</h3>
+              <div id="doctor-list" class="stack">
+                <!-- doctors.js peut injecter une liste sommaire ici -->
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Hospital System</p>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/doctors.js"></script>
+    <script src="../js/appointments.js"></script>
+  </body>
+</html>

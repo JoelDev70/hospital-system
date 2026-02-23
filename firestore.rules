@@ -1,0 +1,71 @@
+// firestore.rules — examples for development and production
+
+// ------------------------------------------------------------------
+// Development (quick, permissive) - enable while developing only
+// ------------------------------------------------------------------
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if true;
+//     }
+//   }
+// }
+
+// ------------------------------------------------------------------
+// Recommended production rules (template)
+// - users: readable by authenticated users; writable by the user or admins
+// - doctors: writable by the user on creation, but status field editable only by admins
+// - appointments: users can write their own appointments; doctors can read appointments assigned to them
+// Customize according to your auth/roles model.
+// ------------------------------------------------------------------
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: check if user is authenticated
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    // Helper: check admin custom claim (set via Firebase Admin SDK)
+    function isAdmin() {
+      return isAuth() && request.auth.token.admin == true;
+    }
+
+    match /users/{userId} {
+      allow read: if isAuth() && (request.auth.uid == userId || isAdmin());
+      allow create: if isAuth() && request.auth.uid == userId;
+      allow update: if isAuth() && (request.auth.uid == userId || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    match /doctors/{doctorId} {
+      // anyone authenticated can create their own doctor doc (during registration)
+      allow create: if isAuth() && request.auth.uid == doctorId;
+      // read: allow admins, the owner and doctors with approved status
+      allow read: if isAdmin() || (isAuth() && request.auth.uid == doctorId) || (resource.data.status == 'approved');
+      // update: only admin can change the status field
+      allow update: if isAdmin() || (isAuth() && request.auth.uid == doctorId && !("status" in request.resource.data && request.resource.data.status != resource.data.status));
+      allow delete: if isAdmin();
+    }
+
+    match /appointments/{apptId} {
+      // Only authenticated users can create appointments for themselves
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      // Read: patient owner, assigned doctor, or admin
+      allow read: if isAuth() && (resource.data.userId == request.auth.uid || resource.data.doctorId == request.auth.uid || isAdmin());
+      // Update: admin can do everything; patient can update their own (cancel); doctor can update status field (approve/cancel)
+      allow update: if isAdmin()
+        || (isAuth() && resource.data.userId == request.auth.uid)
+        || (isAuth() && resource.data.doctorId == request.auth.uid && (
+          // doctor may only change the status field
+          (request.resource.data.keys().hasOnly(["status"]) && request.resource.data.status in ["approved","cancelled"])
+        ));
+      allow delete: if isAdmin() || (isAuth() && resource.data.userId == request.auth.uid);
+    }
+
+    // default: deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

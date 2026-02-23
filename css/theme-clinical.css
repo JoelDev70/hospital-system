@@ -1,0 +1,18 @@
+/* theme-clinical.css — alternate clinical theme (soft green) */
+:root{
+  --primary: #0a7a5f; /* clinical green */
+  --primary-600: #07664f;
+  --accent-soft: rgba(10,122,95,0.06);
+  --bg: #f7fbf8;
+  --border: #e6f1ec;
+}
+
+/* small overrides to ensure contrast */
+.site-header .brand span{color:var(--primary)}
+.main-nav a:hover{color:var(--primary);background:var(--accent-soft)}
+.btn{background:var(--primary)}
+.btn:hover{background:var(--primary-600)}
+.appointment-item{border-left-color:var(--primary)}
+
+/* subtle background tint */
+.page-hero{background:linear-gradient(180deg,transparent, rgba(10,122,95,0.02))}

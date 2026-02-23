@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hospital System</title>
+    <link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/">
+          <img src="assets/icons/logo.svg" alt="Hospital System" class="logo" />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="pages/login.html">Connexion</a>
+          <a href="pages/register.html">Inscription</a>
+          <a href="pages/booking.html">Prendre RDV</a>
+          <a href="pages/appointments.html">Mes RDV</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page-hero" role="region" aria-label="Introduction">
+      <div class="container">
+        <div class="two-columns">
+          <div>
+            <h2>Gérez vos rendez‑vous médicaux simplement</h2>
+            <p class="muted">
+              Un espace sécurisé pour prendre des rendez‑vous, gérer votre
+              profil et consulter vos historiques en quelques clics.
+            </p>
+            <p class="cta" style="margin-top: 18px">
+              <a class="btn" href="pages/register.html">Créer un compte</a>
+              <a class="btn btn-outline" href="pages/booking.html"
+                >Prendre RDV</a
+              >
+            </p>
+          </div>
+          <aside class="card" aria-hidden="true" style="align-self: center">
+            <h3 class="card-title">Accès rapide</h3>
+            <div class="stack">
+              <a class="btn" href="pages/booking.html"
+                >Prendre un rendez‑vous</a
+              >
+              <a class="btn secondary" href="pages/appointments.html"
+                >Mes rendez‑vous</a
+              >
+              <a class="btn secondary" href="pages/login.html">Se connecter</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <section
+      class="features container"
+      aria-label="Fonctionnalités principales"
+    >
+      <article class="card">
+        <h3>Pour les patients</h3>
+        <p>
+          Prendre rendez‑vous, consulter et gérer vos rendez‑vous et votre
+          profil.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Pour les médecins</h3>
+        <p>
+          Consulter le planning, gérer les consultations et suivre les patients.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Hébergement facile</h3>
+        <p>
+          Préparé pour être déployé sur Firebase Hosting ou tout autre hébergeur
+          statique.
+        </p>
+      </article>
+    </section>
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr 240px;
+            gap: 18px;
+            align-items: start;
+          "
+        >
+          <div>
+            <h4>Hospital System</h4>
+            <p class="muted small">
+              Plateforme de gestion de rendez‑vous médicaux — prototype.
+            </p>
+          </div>
+          <div>
+            <h4>Liens rapides</h4>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li><a href="pages/booking.html">Prendre RDV</a></li>
+              <li><a href="pages/appointments.html">Mes RDV</a></li>
+              <li><a href="pages/profile.html">Mon profil</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p class="muted small">
+              support@hospital.example<br />+33 1 23 45 67 89
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 16px;
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <p class="small muted">&copy; 2026 Hospital System</p>
+          <p class="small muted">
+            Conçu avec soin — gardez vos données en sécurité
+          </p>
+        </div>
+      </div>
+    </footer> 
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

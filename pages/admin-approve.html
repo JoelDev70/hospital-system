@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Administration — Validation médecins</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img
+            src="../assets/icons/logo.svg"
+            alt="Hospital System"
+            class="logo"
+          />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="admin-approve.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Validation des médecins</h1>
+          <p class="muted">
+            Liste des inscriptions de médecins en attente. Approuvez ou rejetez
+            chaque dossier.
+          </p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="card">
+          <h3 class="card-title">Candidatures en attente</h3>
+          <div id="pending-list">
+            <p class="muted small">Chargement...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal simple pour afficher les détails d'une candidature -->
+      <div id="admin-modal" class="modal" style="display: none">
+        <div class="modal-content card">
+          <button id="modal-close" class="btn secondary" style="float: right">
+            Fermer
+          </button>
+          <div id="modal-body">
+            <!-- contenu injecté par js/admin.js -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="small muted" style="text-align: center">Administration</p>
+      </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/admin.js"></script>
+    <!-- <script src="../js/auth-check.js"></script>
+    <script>
+      protectPage("admin");
+    </script> -->
+  </body>
+</html>

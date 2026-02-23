@@ -1,0 +1,6 @@
+
+# Firebase service account keys (ne pas committer)
+/hospital-system-75b60-firebase-adminsdk-fbsvc-0b08609aee.json
+/service-account.json
+*.firebase-adminsdk-*.json
+service-account-*.json

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tableau de bord — Médecin</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img
+            src="../assets/icons/logo.svg"
+            alt="Hospital System"
+            class="logo"
+          />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="dashboard-doctor.html">Dashboard médecin</a>
+          <a href="profile.html">Profil</a>
+          <a href="login.html">Connexion</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Dashboard médecin</h1>
+          <p class="muted">
+            Vue d'ensemble : rendez-vous du jour et actions rapides.
+          </p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="two-columns">
+          <div>
+            <div class="card">
+              <h3 class="card-title">Rendez-vous du jour</h3>
+              <div id="doctor-widgets">
+                <p class="muted small">Chargement...</p>
+              </div>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card">
+              <h3 class="card-title">Actions</h3>
+              <div class="stack">
+                <a class="btn" href="appointments.html">Voir mes RDV</a>
+                <a class="btn secondary" href="profile.html">Mon profil</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p style="text-align: center">&copy; 2026 Hospital System</p>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/doctors.js"></script>
+    <script src="../js/appointments.js"></script>
+    <script>
+      // Charger le dashboard médecin après initialisation Firebase
+      if (
+        window.firebaseReady &&
+        typeof window.firebaseReady.then === "function"
+      ) {
+        window.firebaseReady
+          .then(() => {
+            if (window.loadDoctorDashboard) window.loadDoctorDashboard();
+          })
+          .catch(() => {});
+      } else {
+        try {
+          if (window.loadDoctorDashboard) window.loadDoctorDashboard();
+        } catch (e) {}
+      }
+    </script>
+    <!-- <script module src="../js/auth-check.js"></script>
+    <script>
+      protectPage("doctor");
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Profil — Hospital System</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img src="../assets/icons/logo.svg" alt="Hospital System" class="logo">
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="dashboard-patient.html">Mon dashboard</a>
+          <a href="profile.html">Profil</a>
+          <a href="login.html">Connexion</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Mon profil</h1>
+          <p class="muted">Gérez vos informations personnelles et vos préférences.</p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="card">
+          <div id="profile-details">
+            <!-- Détails utilisateur (nom, email, téléphone...) injectés par ../js/patients.js -->
+          </div>
+          <div style="margin-top:12px">
+            <button id="edit-profile">Éditer le profil</button>
+          </div>
+          <div style="margin-top:12px">
+            <h4>Photo de profil (optionnelle)</h4>
+            <div id="profile-photo-area">
+              <img id="profile-photo" src="../assets/icons/user-placeholder.svg" alt="photo" style="max-width:120px;border-radius:8px;display:block;margin-bottom:8px" />
+              <input type="file" id="photo-input" accept="image/*" />
+              <div id="photo-status" class="small muted"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Hospital System</p>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/patients.js"></script>
+  </body>
+</html>

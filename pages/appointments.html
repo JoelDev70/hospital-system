@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mes rendez-vous — Hospital System</title>
+    <link rel="icon" href="../assets/icons/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- optional theme: ../css/theme-clinical.css (preview only) -->
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../index.html">
+          <img
+            src="../assets/icons/logo.svg"
+            alt="Hospital System"
+            class="logo"
+          />
+          <span>Hospital System</span>
+        </a>
+        <nav class="main-nav">
+          <a href="../index.html">Accueil</a>
+          <a href="booking.html">Prendre RDV</a>
+          <a href="appointments.html">Mes RDV</a>
+          <a href="dashboard-patient.html">Mon dashboard</a>
+          <a href="profile.html">Profil</a>
+          <a href="login.html">Connexion</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Mes rendez-vous</h1>
+          <p class="muted">
+            Retrouvez ici l'historique et les prochains rendez-vous.
+          </p>
+        </div>
+      </section>
+
+      <section class="content container">
+        <div class="card">
+          <div id="appointments-container">
+            <!-- Les RDV seront injectés ici par ../js/appointments.js -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Hospital System</p>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/appointments.js"></script>
+  </body>
+</html>
