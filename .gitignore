@@ -4,3 +4,9 @@
 /service-account.json
 *.firebase-adminsdk-*.json
 service-account-*.json
+node_modules/
+serviceAccountKey.json
+.env
+*.log
+
+
